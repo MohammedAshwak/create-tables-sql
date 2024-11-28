@@ -1,0 +1,25 @@
+PROCEDURES:-
+
+create or replace procedure greet_user (p_name in varchar2) as
+begin
+     dbms_output.put_line('hello, ' ||  p_name) ;
+end ;
+
+set serveroutput on ;
+
+begin
+      greet_user('Ashwaq');
+end ;
+/
+
+TRIGGERED:-
+
+
+
+create or replace trigger e_insert
+after insert on employees
+for each row
+begin 
+    dbms_output.put_line ('New record: ' || :NEW.employee_name || '   ' || :NEW.city);
+end; 
+/
